@@ -1,0 +1,6 @@
+.env
+.env.*
+ca.pem
+*.log
+.DS_Store
+Thumbs.db

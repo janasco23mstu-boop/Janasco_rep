@@ -1,0 +1,419 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Oct 08, 2026 at 12:55 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `4aanasco`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_course`
+--
+
+CREATE TABLE `tbl_course` (
+  `ID` int(11) NOT NULL,
+  `COURSE` varchar(100) NOT NULL,
+  `DESCRIPTION` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_course`
+--
+
+INSERT INTO `tbl_course` (`ID`, `COURSE`, `DESCRIPTION`) VALUES
+(2, 'BSCPE', 'BACHELOR OF SCIENCE IN COMPUTER ENGINEERING'),
+(3, 'BSTM', 'BACHELOR OF SCIENCE IN TOURISM MANAGEMENT'),
+(4, 'BSPSYCH', 'BACHELOR OF SCIENCE IN PSYCHOLOGY'),
+(5, 'BTVTED', 'BACHELOR OF TECHNICAL-VOCATIONAL TEACHER EDUCATION'),
+(6, 'BSA', 'BACHELOR OF SCIENCE IN ACCOUNTANCY'),
+(7, 'BSCRIM', 'BACHELOR OF SCIENCE IN CRIMINOLOGY'),
+(8, 'BSENTREP', 'BACHELOR OF SCIENCE IN ENTREPRENEURSHIP'),
+(9, 'BSIS', 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_instructors`
+--
+
+CREATE TABLE `tbl_instructors` (
+  `ID` int(11) NOT NULL,
+  `SALUTATION` varchar(255) NOT NULL,
+  `FIRSTNAME` varchar(100) NOT NULL,
+  `MIDDLENAME` varchar(100) NOT NULL,
+  `LASTNAME` varchar(100) NOT NULL,
+  `PHOTO` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_instructors`
+--
+
+INSERT INTO `tbl_instructors` (`ID`, `SALUTATION`, `FIRSTNAME`, `MIDDLENAME`, `LASTNAME`, `PHOTO`) VALUES
+(2, 'Mr.', 'Alvin', '', 'Certeza', 'images/instructors/f97890a17206e019e6123cd1.jpg'),
+(3, 'Mr.', 'Frankie', '', 'Valleras', 'images/instructors/5d64431f5611d4d7185bbe6d.jpg'),
+(4, 'Mr.', 'Wendel', '', 'Ca-ayon', 'images/instructors/51f15b492dd777f7f9fba883.jpg'),
+(5, 'Mr.', 'Tammy', 'Liban', 'Fababeir', 'images/instructors/d7086c5a21e4a3c2e6da4c92.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_schoolyear`
+--
+
+CREATE TABLE `tbl_schoolyear` (
+  `ID` int(11) NOT NULL,
+  `SCHOOLYEAR` varchar(100) NOT NULL,
+  `DESCRIPTION` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_schoolyear`
+--
+
+INSERT INTO `tbl_schoolyear` (`ID`, `SCHOOLYEAR`, `DESCRIPTION`) VALUES
+(1, '2024-2025', 'AY 2024-2025'),
+(2, '2025-2026', 'AY 2025-2026'),
+(3, '2026-2027', 'AY 2026-2027');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_section`
+--
+
+CREATE TABLE `tbl_section` (
+  `ID` int(11) NOT NULL,
+  `SECTION` varchar(100) NOT NULL,
+  `DESCRIPTION` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_section`
+--
+
+INSERT INTO `tbl_section` (`ID`, `SECTION`, `DESCRIPTION`) VALUES
+(1, 'A', 'SECTION A'),
+(2, 'B', 'SECTION B'),
+(3, 'C', 'SECTION C'),
+(4, 'D', 'SECTION D'),
+(5, 'E', 'SECTION E'),
+(6, 'F', 'SECTION F'),
+(7, 'G', 'SECTION G');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_subject`
+--
+
+CREATE TABLE `tbl_subject` (
+  `ID` int(11) NOT NULL,
+  `COURSE` varchar(100) NOT NULL,
+  `YEARLEVEL` varchar(100) NOT NULL,
+  `TERM` varchar(100) NOT NULL,
+  `CODE` varchar(50) NOT NULL,
+  `SUBJECTTITLE` varchar(100) NOT NULL,
+  `LECTURE` float NOT NULL,
+  `LABORATORY` float NOT NULL,
+  `CREDIT` float NOT NULL,
+  `GRADE` float NOT NULL,
+  `PRE-REQUISITE` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_subject`
+--
+
+INSERT INTO `tbl_subject` (`ID`, `COURSE`, `YEARLEVEL`, `TERM`, `CODE`, `SUBJECTTITLE`, `LECTURE`, `LABORATORY`, `CREDIT`, `GRADE`, `PRE-REQUISITE`) VALUES
+(1, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '1ST YEAR', 'FIRST SEMESTER', 'CC101', 'INTRODUCTION TO COMPUTING', 3, 0, 3, 0, 'NONE'),
+(2, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '1ST YEAR', 'FIRST SEMESTER', 'CC102', 'COMPUTER PROGRAMMING', 3, 0, 3, 0, 'NONE'),
+(3, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '1ST YEAR', 'FIRST SEMESTER', 'GE1', 'UNDERSTANDING THE SELF', 3, 0, 3, 0, 'NONE'),
+(4, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '1ST YEAR', 'FIRST SEMESTER', 'GE2', 'MATHEMATICS IN THE MODERN WORLD', 3, 0, 3, 0, 'NONE'),
+(5, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '1ST YEAR', 'FIRST SEMESTER', 'MATH1', 'CALCULUS', 3, 0, 3, 0, 'NONE'),
+(6, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '1ST YEAR', 'FIRST SEMESTER', 'PE1', 'PHYSICAL FITNESS AND GYMNASTICS', 2, 0, 2, 0, 'NONE'),
+(7, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '1ST YEAR', 'FIRST SEMESTER', 'NSTP113', 'NATIONAL SERVICE TRAINING PROGRAM', 3, 0, 3, 0, 'NONE'),
+(8, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '1ST YEAR', 'SECOND SEMESTER', 'IS101', 'FUNDAMENTALS OF INFORMATION SYSTEMS', 3, 0, 3, 0, 'NONE'),
+(9, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '1ST YEAR', 'SECOND SEMESTER', 'CC103', 'COMPUTER PROGRAMMING 2', 2, 1, 3, 0, 'NONE'),
+(10, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '1ST YEAR', 'SECOND SEMESTER', 'IDBM', 'INTRODUCTION TO DATABASE MANAGEMENT', 2, 1, 3, 0, 'NONE'),
+(11, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '1ST YEAR', 'SECOND SEMESTER', 'GE3', 'READING IN THE PHILIPPINE HISTORY', 3, 2, 3, 0, 'NONE'),
+(12, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '1ST YEAR', 'SECOND SEMESTER', 'GE4', 'PURPOSIVE COMMUNICATION', 3, 0, 3, 0, 'NONE'),
+(13, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '1ST YEAR', 'SECOND SEMESTER', 'PE2', 'RYTHMIC ACTIVITIES', 2, 0, 2, 0, 'PE1'),
+(14, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '1ST YEAR', 'SECOND SEMESTER', 'NSTP123', 'NATIONAL SERVICE TRAINING PROGRAM', 3, 0, 3, 0, 'NSTP1'),
+(15, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '2ND YEAR', 'FIRST SEMESTER', 'CC104', 'DATA STRUCTURES AND ALGORITHM', 2, 1, 3, 0, 'CC103'),
+(16, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '2ND YEAR', 'FIRST SEMESTER', 'DM101', 'ORGANIZATION AND MANAGEMENT CONCEPTS', 3, 0, 3, 0, 'NONE'),
+(17, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '2ND YEAR', 'FIRST SEMESTER', 'DM102', 'FINANCIAL MANAGEMENT', 3, 0, 3, 0, 'NONE'),
+(18, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '2ND YEAR', 'FIRST SEMESTER', 'GE5', 'THE CONTEMPORARY WORLD', 3, 0, 3, 0, 'NONE'),
+(19, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '2ND YEAR', 'FIRST SEMESTER', 'GE6', 'ART APPRECIATION', 3, 0, 3, 0, 'NONE'),
+(20, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '2ND YEAR', 'FIRST SEMESTER', 'GEELEC1', 'LIVING IN THE IT ERA', 3, 0, 3, 0, 'NONE'),
+(21, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '2ND YEAR', 'FIRST SEMESTER', 'PE3', 'INDIVIDUAL / DUAL SPORTS / GAMES', 2, 0, 2, 0, 'NONE'),
+(22, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '2ND YEAR', 'SECOND SEMESTER', 'CC105', 'INFORMATION MANAGEMENT 1', 3, 2, 3, 0, 'DM101'),
+(23, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '2ND YEAR', 'SECOND SEMESTER', 'IS103', 'IT INFRASTRUCTURE AND NETWORK TECHNOLOGIES', 2, 1, 3, 0, 'NONE'),
+(24, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '2ND YEAR', 'SECOND SEMESTER', 'IS105', 'ENTERPRISE ARCHITECTURE', 3, 0, 3, 0, 'NONE'),
+(25, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '2ND YEAR', 'SECOND SEMESTER', 'MATH2', 'DISCRETE MATHEMATICS', 3, 2, 3, 0, 'MATH1'),
+(26, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '2ND YEAR', 'SECOND SEMESTER', 'GE7', 'SCIENCE AND TECHNOLOGY', 3, 0, 3, 0, 'CC101'),
+(27, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '2ND YEAR', 'SECOND SEMESTER', 'GEELEC2', 'ENVIRONMENTAL SCIENCE', 3, 0, 3, 0, 'NONE'),
+(28, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '2ND YEAR', 'SECOND SEMESTER', 'PE4', 'TEAM SPORTS / GAMES', 2, 0, 2, 0, 'NONE'),
+(29, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'FIRST SEMESTER', 'DM103', 'BUSINESS PROCESS MANAGEMENT', 3, 2, 3, 0, 'DM102'),
+(30, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'FIRST SEMESTER', 'IS104', 'SYSTEM ANALYSIS AND DESIGN', 3, 2, 3, 0, 'IM1'),
+(31, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'FIRST SEMESTER', 'QUAMET', 'QUANTITATIVE METHODS', 3, 2, 3, 0, 'MATH2'),
+(32, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'FIRST SEMESTER', 'ADV01', 'IS ELECTIVE 1', 2, 1, 3, 0, '3RD YR. STANDING'),
+(33, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'FIRST SEMESTER', 'CC106', 'APPLICATION DEVELOPMENT AND EMERGING TECHNOLOGIES', 2, 1, 3, 0, 'IS103'),
+(34, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'FIRST SEMESTER', 'ADV06', 'IS PROFESSIONAL ELECTIVE', 3, 2, 3, 0, '3RD YR. STANDING'),
+(35, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'SECOND SEMESTER', 'CAP101', 'CAPSTONE PROJECT 1', 3, 0, 3, 0, 'QUAMET'),
+(36, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'SECOND SEMESTER', 'IS106', 'IS PROJECT MANAGEMENT 1', 3, 0, 3, 0, 'IS104'),
+(37, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'SECOND SEMESTER', 'ADV03', 'IS ELECTIVE 2', 3, 0, 3, 0, 'ADV01'),
+(38, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'SECOND SEMESTER', 'DM104', 'EVALUATION OF BUSINESS PERFORMANCE', 2, 1, 3, 0, 'DM103'),
+(39, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'SECOND SEMESTER', 'ADV08', 'IS PROFESSIONAL ELECTIVE 3', 3, 0, 3, 0, 'IDBM'),
+(40, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'SECOND SEMESTER', 'GE8', 'ETHICS', 3, 0, 3, 0, 'NONE'),
+(41, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'SECOND SEMESTER', 'ADV07', 'IS PROFESSIONAL ELECTIVE 2', 3, 0, 3, 0, '3RD YR. STANDING'),
+(42, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'SUMMER CLASS', 'IS107', 'IS STRATEGY MANAGEMENT AND ACQUISITION', 3, 0, 3, 0, 'ADV03'),
+(43, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'SUMMER CLASS', 'ADV04', 'IS ELECTIVE 3', 3, 0, 3, 0, 'ADV07'),
+(44, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '3RD YEAR', 'SUMMER CLASS', 'IS102', 'PROFESSIONAL ISSUES IN INFORMATION SYSTEM', 3, 0, 3, 0, 'NONE'),
+(45, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '4TH YEAR', 'FIRST SEMESTER', 'IS108', 'IS PROJECT MANAGEMENT 2', 3, 0, 3, 0, 'IS106'),
+(46, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '4TH YEAR', 'FIRST SEMESTER', 'CAP102', 'CAPSTONE PROJECT 2', 0, 3, 3, 0, 'CAP101'),
+(47, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '4TH YEAR', 'FIRST SEMESTER', 'ADV05', 'IS ELECTIVE 4', 3, 0, 3, 0, 'ADV03'),
+(48, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '4TH YEAR', 'FIRST SEMESTER', 'ADV09', 'IS PROFESSIONAL ELECTIVE 4', 3, 0, 3, 0, 'ADV07'),
+(49, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '4TH YEAR', 'FIRST SEMESTER', 'TECHNO', 'TECHNOPRENEURSHIP', 3, 0, 3, 0, '4TH YR. STANDING'),
+(50, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '4TH YEAR', 'FIRST SEMESTER', 'RIZAL', 'LIFE, WORKS AND WRITINGS OF RIZAL', 3, 0, 3, 0, 'NONE'),
+(51, 'BACHELOR OF SCIENCE IN INFORMATION SYSTEM', '4TH YEAR', 'SECOND SEMESTER', 'PRACT101', 'PRACTICUM', 0, 9, 9, 0, 'CAP102');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_term`
+--
+
+CREATE TABLE `tbl_term` (
+  `ID` int(11) NOT NULL,
+  `TERM` varchar(100) NOT NULL,
+  `DESCRIPTION` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_term`
+--
+
+INSERT INTO `tbl_term` (`ID`, `TERM`, `DESCRIPTION`) VALUES
+(1, '1ST SEM', 'FIRST SEMESTER'),
+(2, '2ND SEM', 'SECOND SEMESTER'),
+(3, 'SUMMER', 'SUMMER CLASS'),
+(4, 'TUTORIAL', 'TUTORIAL CLASS');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_users`
+--
+
+CREATE TABLE `tbl_users` (
+  `ID` int(11) NOT NULL,
+  `FULLNAME` varchar(255) NOT NULL,
+  `USERNAME` varchar(100) NOT NULL,
+  `PASSWORD` varchar(100) NOT NULL,
+  `USERTYPE` varchar(50) NOT NULL,
+  `IMAGE` varchar(255) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_users`
+--
+
+INSERT INTO `tbl_users` (`ID`, `FULLNAME`, `USERNAME`, `PASSWORD`, `USERTYPE`) VALUES
+(15, 'James Paul De Vera Añasco', 'James512', '$2y$10$vS0vN3nanMvVqpqyhruFOOT6E8wo7exRE4TQGrqTWHqIKD6NCB1a2', 'Admin'),
+(16, 'Denmark Badeo', 'Denmark', '$2y$10$fMBAd8I9W2IZE/oTYciVvumTocfafBWOOgDXYG741Zmc37/FiqQKO', 'Admin'),
+(17, 'Flodena Dolloso', 'Flodena', '$2y$10$mN6BLIxnJ7ZEKUyHFA1Xx.3cQ6ZYCupyOfhrNEkeAR.uEvfZqASUq', 'Admin'),
+(18, 'Harlyne Tomes', 'Harlyne', '$2y$10$RgXiUom2jmo7KBwZQpvDFudVZbB2qh3dSfpgDMnJ0Y9aN9lcb9Yq.', 'Registrar'),
+(19, 'Dennis Gonzales', 'Dennis', '$2y$10$KZTNpUGCSOIjzRwKGoix.eg9iJ6a.FEJkXTqF9jSZNMxoEYtRp4mq', 'Dean'),
+(20, 'Alexah Espinosa', 'Alexah', '$2y$10$WbDt7thRIZUaTcCF8SO1quBQTaSXwNaXSQwk99vJEVmFF27m2aO.m', 'Student'),
+(21, 'Mona May Chaves', 'Mona', '$2y$10$n4jiISP0Zao6ggiaJhyTbu7RyMcSULxoWa3RR7jS1ZBcD5FjqAWu2', 'Student'),
+(22, 'Nieva Jean Flores', 'Nieva', '$2y$10$uGa4zP7qWatwTi62c8hJBekvI.EeTjvQ5zzLPmWfrsslsbrfQu.Qy', 'Registrar'),
+(23, 'Frankie Valleras', 'Frankie', '$2y$10$lDZSNimM4FjasEe7eI2SV.PWGiQjcKqGYTeEPqD.esIVPhwYDggIa', 'Instructor'),
+(24, 'Alvin Certeza', 'Alvin', '$2y$10$JEEXgYOcTkEKu56zHARYJObQ5oetdx8jMNvGzxFFzxAGrJYqyEL/G', 'Instructor'),
+(25, 'Lester Lerios', 'Lester', '$2y$10$Vki6Pz2J8YUwLLDICPaatOcF7hYVQFMpwiTYnHCKgRt2SwmnmFavy', 'Dean'),
+(26, 'Elisabeth Tapalla', 'Elisabeth', '$2y$10$kZqmJVPmvjtnyIohhC/rxu84rb1GlmXDWXKL0i5wmc5jJRa3RrijW', 'Registrar'),
+(27, 'Kurt Quibedo', 'Kurt', '$2y$10$3lWRKPkGstQerL3BanUqreY2Btt9xXIS.1J73TrIXOg9eUmbQAyWO', 'Dean'),
+(28, 'Arven Abrigo', 'Arven', '$2y$10$V/uc4PrFOqNj.xaiYsodcOpkpq3ItAJnd6C7hLyK1bIZxSq6uRRRi', 'Student'),
+(29, 'Tammy L. Fababeir', 'Tammy', '$2y$10$YNQbEwvgjEnOti7ULg09O.6wdlLxdlTtuEpNo7UO9IBhzWq/wlVW.', 'Instructor');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_usertype`
+--
+
+CREATE TABLE `tbl_usertype` (
+  `ID` int(11) NOT NULL,
+  `Usertype` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_usertype`
+--
+
+INSERT INTO `tbl_usertype` (`ID`, `Usertype`) VALUES
+(1, 'Admin'),
+(2, 'Registrar'),
+(7, 'Dean'),
+(8, 'Instructor'),
+(9, 'Student');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_yearlevel`
+--
+
+CREATE TABLE `tbl_yearlevel` (
+  `ID` int(11) NOT NULL,
+  `YEARLEVEL` varchar(100) NOT NULL,
+  `DESCRIPTION` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_yearlevel`
+--
+
+INSERT INTO `tbl_yearlevel` (`ID`, `YEARLEVEL`, `DESCRIPTION`) VALUES
+(1, '1ST', 'FIRST YEAR'),
+(2, '2ND', 'SECOND YEAR'),
+(3, '3RD', 'THIRD YEAR'),
+(4, '4TH', 'FOURTH YEAR');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tbl_course`
+--
+ALTER TABLE `tbl_course`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `tbl_instructors`
+--
+ALTER TABLE `tbl_instructors`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `tbl_schoolyear`
+--
+ALTER TABLE `tbl_schoolyear`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `tbl_section`
+--
+ALTER TABLE `tbl_section`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `tbl_subject`
+--
+ALTER TABLE `tbl_subject`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `tbl_term`
+--
+ALTER TABLE `tbl_term`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `tbl_users`
+--
+ALTER TABLE `tbl_users`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `tbl_usertype`
+--
+ALTER TABLE `tbl_usertype`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `tbl_yearlevel`
+--
+ALTER TABLE `tbl_yearlevel`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_course`
+--
+ALTER TABLE `tbl_course`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `tbl_instructors`
+--
+ALTER TABLE `tbl_instructors`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `tbl_schoolyear`
+--
+ALTER TABLE `tbl_schoolyear`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_section`
+--
+ALTER TABLE `tbl_section`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `tbl_subject`
+--
+ALTER TABLE `tbl_subject`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT for table `tbl_term`
+--
+ALTER TABLE `tbl_term`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_users`
+--
+ALTER TABLE `tbl_users`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT for table `tbl_usertype`
+--
+ALTER TABLE `tbl_usertype`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `tbl_yearlevel`
+--
+ALTER TABLE `tbl_yearlevel`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
