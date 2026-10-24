@@ -70,7 +70,7 @@ $loggedInImageExists = $loggedInImage !== "" && is_file(__DIR__ . "/" . $loggedI
                 <?php endif; ?>
 
                 <?php if (function_exists("can_access") && can_access("instructor.php")): ?>
-                    <a href="Instructor.PHP"><i class="fa-solid fa-chalkboard-user"></i><span>Instructor</span></a>
+                    <a href="Instructor.php"><i class="fa-solid fa-chalkboard-user"></i><span>Instructor</span></a>
                 <?php endif; ?>
 
                 <?php if (function_exists("can_access") && can_access("users.php")): ?>
