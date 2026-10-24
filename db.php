@@ -17,7 +17,15 @@ if ($port < 1 || $port > 65535) {
 }
 
 $isLocal = in_array(strtolower($host), ["localhost", "127.0.0.1", "::1"], true);
-$caPath = getenv("DB_SSL_CA") ?: getenv("MYSQL_SSL_CA") ?: "/etc/secrets/ca.pem";
+$configuredCaPath = getenv("DB_SSL_CA") ?: getenv("MYSQL_SSL_CA");
+// Prefer a configured hosting Secret File, then fall back to the CA file bundled with this project.
+if ($configuredCaPath !== false && $configuredCaPath !== "") {
+    $caPath = $configuredCaPath;
+} elseif (is_readable("/etc/secrets/ca.pem") && is_file("/etc/secrets/ca.pem")) {
+    $caPath = "/etc/secrets/ca.pem";
+} else {
+    $caPath = __DIR__ . "/certs/ca.pem";
+}
 
 $conn = mysqli_init();
 if (!$conn) {
