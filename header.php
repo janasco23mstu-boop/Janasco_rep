@@ -15,7 +15,9 @@ $loggedInImageExists = $loggedInImage !== "" && is_file(__DIR__ . "/" . $loggedI
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($pageTitle ?? "Dashboard") ?></title>
+    <title>
+        <?= htmlspecialchars($pageTitle ?? "Dashboard") ?>
+    </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -27,7 +29,8 @@ $loggedInImageExists = $loggedInImage !== "" && is_file(__DIR__ . "/" . $loggedI
             <span class="logo-red">JAPS</span>
             <span class="logo-white">CREATION</span>
         </div>
-        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-navigation">
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
+            aria-controls="mobile-navigation">
             <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
         <div class="session-user">
@@ -36,8 +39,12 @@ $loggedInImageExists = $loggedInImage !== "" && is_file(__DIR__ . "/" . $loggedI
             <?php else: ?>
                 <i class="fa-solid fa-circle-user"></i>
             <?php endif; ?>
-            <span><strong><?= htmlspecialchars($loggedInFullname) ?></strong>
-                (<?= htmlspecialchars($loggedInUsertype) ?>)</span>
+            <span><strong>
+                    <?= htmlspecialchars($loggedInFullname) ?>
+                </strong>
+                (
+                <?= htmlspecialchars($loggedInUsertype) ?>)
+            </span>
         </div>
     </header>
 
