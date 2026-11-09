@@ -1,0 +1,7 @@
+.git
+.gitignore
+.env
+.env.*
+*.zip
+README_DEPLOYMENT.md
+ca.pem
